@@ -14,7 +14,8 @@ class Room(models.Model):
     topic=models.ForeignKey(Topic,on_delete=models.SET_NULL, null=True)
     name=models.CharField(max_length=200)
     description=models.TextField(null=True, blank=True) # balnk =true means , if we submit a form then in that case also its value can be empty
-    # participants=
+    participants=models.ManyToManyField(User,related_name='participants',blank=True) # we are adding a relative name as we have specified a connectio of host and participants with foriegn key above
+    # also we have to submit a form without having to check something here, so that why we mentioned blank='True'
     updated=models.DateTimeField(auto_now=True)
     created=models.DateTimeField(auto_now_add=True) # only take a timstamp when it is crated
 
