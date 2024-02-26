@@ -13,7 +13,7 @@ class Room(models.Model):
     host=models.ForeignKey(User,on_delete=models.SET_NULL, null=True)
     topic=models.ForeignKey(Topic,on_delete=models.SET_NULL, null=True)
     name=models.CharField(max_length=200)
-    description=models.TextField(null=True, blank=True) # balnk =true means , if we submit a form then in that case also its value can be empty
+    description=models.TextField(null=True, blank=True,max_length=100) # balnk =true means , if we submit a form then in that case also its value can be empty
     participants=models.ManyToManyField(User,related_name='participants',blank=True) # we are adding a relative name as we have specified a connectio of host and participants with foriegn key above
     # also we have to submit a form without having to check something here, so that why we mentioned blank='True'
     updated=models.DateTimeField(auto_now=True)
