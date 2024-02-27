@@ -10,12 +10,6 @@ from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse
 # Create your views here.
 
-# rooms=[
-#     {'id':1, 'name':'Lets learn python!'},
-#     {'id':2, 'name':'Design with!'},
-#     {'id':3, 'name':'Lets forget python!'},
-# ]
-
 def loginPage(request):
     page= 'login'
     if request.user.is_authenticated:
